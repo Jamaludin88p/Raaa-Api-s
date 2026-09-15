@@ -1,4 +1,4 @@
-import { sendTelegramLog } from './telegramNotifier.js'
+import { sendTelegramLog } from './telegramNotifier.ts'
 
 const OWNER_ID = process.env.TELEGRAM_OWNER_ID
 
@@ -50,30 +50,4 @@ export async function handleTelegramUpdate(update: any) {
     } catch {
         // Jangan biarkan error di sini menggagalkan response ke Telegram
     }
-}                        const message = update.message
-                        if (message && message.chat && String(message.chat.id) === String(OWNER_ID) && message.text) {
-                            const command = message.text.trim()
-                            if (command === '/stats' || command === '/status') {
-                                const stats = getHitStats()
-                                const replyMsg = `<b>📊 Kyzz APIs v2 Live Status</b>
--------------------------------
-<b>Total API Hits:</b> <code>${stats.totalHits}</code>
-<b>Server Uptime:</b> <code>${stats.uptime}</code>
-<b>Status:</b> 🟢 ONLINE & Healthy`
-                                await sendTelegramLog(replyMsg)
-                            } else if (command === '/ping') {
-                                await sendTelegramLog('🏓 <b>Pong!</b> Server Kyzz APIs v2 is active.')
-                            }
-                        }
-                    }
-                }
-            }
-        } catch (e) {
-            // Polling error retry wait
-            await new Promise(r => setTimeout(r, 5000))
-        }
-    }
 }
-
-// Start listener automatically
-pollTelegramUpdates().catch(() => {})

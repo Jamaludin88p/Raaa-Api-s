@@ -1,8 +1,8 @@
 import type { Context, Next } from 'hono'
-import logger from './logger.js'
-import Color from './color.js'
-import { sendTelegramLog } from './telegramNotifier.js'
-import { incrementHitCount } from './telegramBotListener.js'
+import logger from './logger.ts'
+import Color from './color.ts'
+import { sendTelegramLog } from './telegramNotifier.ts'
+import { incrementHitCount } from './telegramBotListener.ts'
 
 export const logApiRequest = async (c: Context, next: Next) => {
     incrementHitCount()
