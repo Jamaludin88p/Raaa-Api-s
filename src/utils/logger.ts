@@ -1,4 +1,4 @@
-import Color from './color.js'
+import Color from './color.ts'
 
 const logger = {
     info: (msg) => console.log(`${Color.blue('○')} ${Color.gray('info')}  ${msg}`),
