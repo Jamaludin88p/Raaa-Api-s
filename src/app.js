@@ -84,34 +84,4 @@ app.onError((err, c) => {
     }, 500)
 })
 
-export default app        title: 'Kyzz APIs v2 - RESTful Service Documentation',
-        description: 'Simple, reliable, & high-performance REST API services built with Next.js 16, Hono.js, & NJS Engine.',
-        contact: {
-            name: 'Mommy Kyuu',
-            url: 'https://whatsapp.com/channel/0029Vb7gcbuLdQelWzrTzD3D'
-        }
-    },
-    servers: [
-        {
-            url: 'https://api.kyzzz.xyz',
-            description: 'Production Server'
-        },
-        {
-            url: 'http://localhost:3000',
-            description: 'Local Server'
-        }
-    ]
-}
-
-app.doc('/openapi.json', openApiConfig)
-
-app.onError((err, c) => {
-    logger.error(`[Error] ${err.message}`)
-    return c.json({
-        error: 'Internal Server Error',
-        message: err.message,
-        status: 500
-    }, 500)
-})
-
 export default app
