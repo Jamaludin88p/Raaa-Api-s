@@ -1,4 +1,4 @@
-# ✨ Kyzz APIs v2 ✨
+# ✨ Raa vynee APIs v2 ✨
 
 **High-Performance. Scalable. Type-Safe. REST API Platform.**  
 *Powered by Next.js 16, Hono.js, NJS (Node.js/Bun), Zod Schema, & Swagger OpenAPI 3.0.0*
