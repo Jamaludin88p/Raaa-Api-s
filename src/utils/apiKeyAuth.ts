@@ -2,9 +2,11 @@ import type { Context, Next } from 'hono'
 import { settings } from '../config/setting.js'
 
 export const apiKeyAuth = async (c: Context, next: Next) => {
-    // Lewati cek apikey untuk endpoint OpenAPI spec atau dokumentasi
+    // Lewati cek apikey untuk endpoint OpenAPI spec, dokumentasi,
+    // dan webhook Telegram (Telegram tidak mengirim query apikey;
+    // endpoint ini dilindungi sendiri lewat TELEGRAM_WEBHOOK_SECRET).
     const path = c.req.path
-    if (path === '/openapi.json' || path.startsWith('/docs')) {
+    if (path === '/openapi.json' || path.startsWith('/docs') || path === '/api/telegram/webhook') {
         return await next()
     }
 
